@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Hosted AI — Private AI Server for Home and Business</title>
+<meta name="description" content="Self-hosted AI that you control completely. ClawBox: NVIDIA Jetson hardware, open source software, zero cloud dependency.">
+<meta name="keywords" content="self hosted ai, private ai server, self hosted llm, self hosted ai assistant, own ai server, self hosted chatgpt">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://self-hosted-ai.com/">
+<meta property="og:title" content="Self-Hosted AI — Private AI Server for Home and Business">
+<meta property="og:description" content="Self-hosted AI that you control completely. ClawBox: NVIDIA Jetson hardware, open source software, zero cloud dependency.">
+<meta property="og:url" content="https://self-hosted-ai.com/">
+<meta property="og:image" content="https://openclawhardware.dev/clawbox-3.webp">
+<meta property="og:type" content="product">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self-Hosted AI — Private AI Server for Home and Business">
+<meta name="twitter:description" content="Self-hosted AI that you control completely. ClawBox: NVIDIA Jetson hardware, open source software, zero cloud dependency.">
+<meta name="twitter:image" content="https://openclawhardware.dev/clawbox-3.webp">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"ClawBox","description":"Self-hosted AI that you control completely. ClawBox: NVIDIA Jetson hardware, open source software, zero cloud dependency.","brand":{"@type":"Brand","name":"ClawBox"},"image":"https://openclawhardware.dev/clawbox-3.webp","url":"https://openclawhardware.dev/","offers":{"@type":"Offer","price":"549","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does self-hosted AI mean?","acceptedAnswer":{"@type":"Answer","text":"You own the hardware. You control the software. Your data stays on your premises. No cloud required, no vendor lock-in."}},
+{"@type":"Question","name":"Can I use it for business?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Process confidential documents, automate customer comms, manage internal workflows — all without data leaving your office."}},
+{"@type":"Question","name":"Is the software really open source?","acceptedAnswer":{"@type":"Answer","text":"Yes — OpenClaw is MIT-licensed on GitHub. Fork it, modify it, contribute. No kill switch, no phone-home."}}]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0f1a;color:#e0e0e0;min-height:100vh;line-height:1.7}
+.hero{padding:60px 20px 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero-text h1{font-size:clamp(2rem,4.5vw,3.2rem);color:#fff;font-weight:800;line-height:1.15;margin-bottom:16px}
+.hero-text h1 span{background:linear-gradient(135deg,#0891b2,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-text .subtitle{font-size:1.1rem;color:#9ca3af;margin-bottom:24px;line-height:1.6}
+.hero-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.btn-primary{display:inline-block;padding:16px 32px;background:linear-gradient(135deg,#0891b2,#06b6d4);color:#fff;text-decoration:none;border-radius:12px;font-size:1.1rem;font-weight:700;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:scale(1.05);box-shadow:0 8px 30px #0891b244}
+.btn-secondary{display:inline-block;padding:16px 32px;color:#06b6d4;text-decoration:none;border:1px solid #0891b244;border-radius:12px;font-size:1rem;font-weight:600;transition:all .2s}
+.btn-secondary:hover{background:#0891b211}
+.hero-micro{font-size:.85rem;color:#6b7280}
+.hero-micro span{color:#22c55e;font-weight:600}
+.hero-image{text-align:center}
+.hero-image img{max-width:100%;height:auto;border-radius:16px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4))}
+.trust-bar{background:#121a2e;border-top:1px solid #0891b222;border-bottom:1px solid #0891b222;padding:16px 20px;text-align:center}
+.trust-bar .items{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:.85rem;color:#9ca3af}
+.section{max-width:1000px;margin:0 auto;padding:80px 20px}
+.section-title{font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;font-weight:800;margin-bottom:12px;text-align:center}
+.section-sub{color:#9ca3af;font-size:1.05rem;margin-bottom:40px;text-align:center;max-width:640px;margin-left:auto;margin-right:auto}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feature{background:#121a2e;border-radius:14px;padding:28px;border:1px solid #0891b222;transition:border-color .2s}
+.feature:hover{border-color:#0891b255}
+.feature .icon{font-size:1.8rem;margin-bottom:12px}
+.feature h3{color:#fff;font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.feature p{color:#9ca3af;font-size:.9rem;line-height:1.6}
+.proof{background:#121a2e;border-radius:16px;padding:48px 32px;border:1px solid #0891b222}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:32px}
+.review{background:#0a0f1a;border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,0.05)}
+.review .stars{color:#06b6d4;margin-bottom:8px;font-size:1.1rem}
+.review p{color:#d1d5db;font-size:.95rem;font-style:italic;margin-bottom:12px;line-height:1.6}
+.review cite{color:#6b7280;font-size:.85rem;font-style:normal}
+.faqs{max-width:700px;margin:0 auto}
+.faq{background:#121a2e;border-radius:12px;padding:24px;margin-bottom:12px;border:1px solid #0891b222}
+.faq h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:8px}
+.faq p{color:#9ca3af;font-size:.9rem;line-height:1.6}
+.cta-box{text-align:center;background:linear-gradient(135deg,#0891b222,#06b6d411);border:1px solid #0891b233;border-radius:20px;padding:48px 32px;margin:40px auto;max-width:600px}
+.cta-box h2{color:#fff;font-size:1.8rem;font-weight:800;margin-bottom:12px}
+.cta-box p{color:#9ca3af;margin-bottom:24px}
+.cta-box .price{font-size:2rem;color:#fff;font-weight:800;margin-bottom:8px}
+.cta-box .price-sub{font-size:.85rem;color:#6b7280;margin-bottom:24px}
+footer{text-align:center;padding:40px 20px;color:#6b7280;font-size:.8rem;border-top:1px solid rgba(255,255,255,0.05)}
+footer a{color:#06b6d4;text-decoration:none}
+@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.hero-cta{justify-content:center}.hero-image{order:-1}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="hero-text">
+<h1>Private <span>AI Server</span> You Own</h1>
+<p class="subtitle">Self-hosted AI that you control completely. ClawBox: NVIDIA Jetson hardware, open source software, zero cloud dependency.</p>
+<div class="hero-cta">
+<a href="https://openclawhardware.dev" class="btn-primary">Buy ClawBox — €549</a>
+<a href="https://openclawhardware.dev/faq" class="btn-secondary">Learn More</a>
+</div>
+<p class="hero-micro"><span>✓ 30-day money-back guarantee</span> · Free shipping available · No subscriptions</p>
+</div>
+<div class="hero-image">
+<img src="https://openclawhardware.dev/clawbox-3.webp" alt="ClawBox AI Hardware Device" width="500" height="400" loading="eager">
+</div>
+</section>
+<div class="trust-bar"><div class="items"><span>⚡ 67 TOPS AI</span><span>💾 512GB NVMe</span><span>🔌 20W Power</span><span>🛡️ Carbon Fiber</span><span>💰 €549 One-Time</span></div></div>
+<section class="section">
+<h2 class="section-title">Why ClawBox?</h2>
+<p class="section-sub">Everything you need for private, always-on AI — in one beautiful box.</p>
+<div class="features"><div class="feature"><div class="icon">🏢</div><h3>Business Ready</h3><p>Process confidential data locally. GDPR-friendly. No third-party data processors.</p></div>
+<div class="feature"><div class="icon">🔒</div><h3>Zero Cloud Dependency</h3><p>Works completely offline for local models. Internet only needed for messaging platforms and cloud APIs.</p></div>
+<div class="feature"><div class="icon">💻</div><h3>Full Linux Server</h3><p>Ubuntu under the hood. SSH access, Docker support, install anything. It's your machine.</p></div>
+<div class="feature"><div class="icon">📊</div><h3>API Integrations</h3><p>REST APIs, MQTT, webhooks. Connect to any business tool or workflow.</p></div>
+<div class="feature"><div class="icon">🔄</div><h3>Open Source Stack</h3><p>OpenClaw (MIT), Whisper, Llama, Kokoro — all open source. No black boxes.</p></div>
+<div class="feature"><div class="icon">🛡️</div><h3>Enterprise Security</h3><p>Local processing, encrypted storage, network isolation possible. Your security policies.</p></div></div>
+</section>
+<section class="section">
+<div class="proof">
+<h2 class="section-title" style="margin-bottom:32px">What Customers Say</h2>
+<div class="reviews"><div class="review"><div class="stars">★★★★★</div><p>"Best tech purchase I've made in years. The AI runs 24/7 and barely uses any power."</p><cite>— Marco P., Italy</cite></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Setup was genuinely 5 minutes. Now it manages my emails and smart home. Incredible."</p><cite>— Sarah K., Germany</cite></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Finally, private AI that actually works. No more sending my data to the cloud."</p><cite>— James L., UK</cite></div></div>
+</div>
+</section>
+<section class="section">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<p class="section-sub">Got questions? We've got answers.</p>
+<div class="faqs"><div class="faq"><h3>What does self-hosted AI mean?</h3><p>You own the hardware. You control the software. Your data stays on your premises. No cloud required, no vendor lock-in.</p></div>
+<div class="faq"><h3>Can I use it for business?</h3><p>Absolutely. Process confidential documents, automate customer comms, manage internal workflows — all without data leaving your office.</p></div>
+<div class="faq"><h3>Is the software really open source?</h3><p>Yes — OpenClaw is MIT-licensed on GitHub. Fork it, modify it, contribute. No kill switch, no phone-home.</p></div></div>
+</section>
+<section class="section">
+<div class="cta-box">
+<h2>Ready to Own Your AI?</h2>
+<div class="price">€549</div>
+<p class="price-sub">One-time purchase · No subscriptions · 30-day money-back guarantee</p>
+<a href="https://openclawhardware.dev" class="btn-primary">Order ClawBox Now</a>
+<p style="margin-top:16px;font-size:.85rem;color:#6b7280">Ships from EU via DHL Express · Worldwide delivery</p>
+</div>
+</section>
+<footer>
+<p>ClawBox by <a href="https://openclawhardware.dev">OpenClaw Hardware</a> · NVIDIA Jetson Orin Nano · Made with ❤️ in Bulgaria</p>
+<p style="margin-top:8px"><a href="https://openclawhardware.dev/faq">FAQ</a> · <a href="https://openclawhardware.dev/shipping">Shipping</a> · <a href="https://discord.gg/FbKmnxYnpq">Discord</a> · <a href="mailto:yanko@idrobots.com">Contact</a></p>
+</footer>
+</body>
+</html>
