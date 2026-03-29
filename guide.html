@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Self-Hosted AI Guide 2026 — Deploy Your Own AI Privately</title>
+<meta name="description" content="The complete self-hosted AI guide for 2026: choose hardware, pick models, set up Ollama, and run AI privately with zero cloud dependency. 500+ word step-by-step walkthrough.">
+<meta name="keywords" content="self hosted ai guide, self hosted ai setup, run ai locally, private ai deployment, ollama setup">
+<link rel="canonical" href="https://self-hosted-ai.com/guide.html">
+<meta property="og:title" content="Complete Self-Hosted AI Guide 2026 — Deploy Your Own AI Privately">
+<meta property="og:description" content="Step-by-step self-hosted AI guide: hardware selection, model deployment, and privacy-first configuration.">
+<meta property="og:url" content="https://self-hosted-ai.com/guide.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Complete Self-Hosted AI Guide 2026">
+<meta name="twitter:description" content="Step-by-step self-hosted AI guide for 2026 — private, fast, no cloud required.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--accent:#0891b2;--bg:#0a0f1a;--bg2:#111827;--bg3:#1f2937;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
+header{background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-size:1.3rem;font-weight:800;color:var(--accent);}
+nav a{margin-left:1.5rem;color:var(--muted);font-size:.9rem;}nav a:hover{color:var(--text);}
+.hero{background:linear-gradient(135deg,#0a0f1a 0%,#001820 100%);padding:4rem 2rem;text-align:center;border-bottom:1px solid var(--border);}
+.hero h1{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;line-height:1.2;margin-bottom:1rem;}
+.hero h1 span{color:var(--accent);}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto;}
+.badge{display:inline-block;background:rgba(8,145,178,.15);color:var(--accent);padding:.3rem .8rem;border-radius:99px;font-size:.8rem;font-weight:600;margin-bottom:1rem;border:1px solid rgba(8,145,178,.3);}
+.container{max-width:860px;margin:0 auto;padding:3rem 2rem;}
+h2{font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;color:var(--text);}
+h3{font-size:1.15rem;font-weight:600;margin:1.5rem 0 .5rem;color:var(--accent);}
+p{color:#cbd5e1;margin-bottom:1rem;font-size:.95rem;}
+ul,ol{color:#cbd5e1;font-size:.95rem;padding-left:1.5rem;margin-bottom:1rem;}
+li{margin-bottom:.4rem;}
+.table-wrap{overflow-x:auto;margin:1.5rem 0;}
+table{width:100%;border-collapse:collapse;font-size:.9rem;}
+th{background:var(--bg3);color:var(--accent);padding:.75rem 1rem;text-align:left;border:1px solid var(--border);}
+td{padding:.7rem 1rem;border:1px solid var(--border);color:#cbd5e1;}
+tr:nth-child(even) td{background:rgba(31,41,55,.4);}
+.cta-box{background:linear-gradient(135deg,#0891b2 0%,#0e7490 100%);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;}
+.cta-box h3{color:#fff;margin:0 0 .5rem;}
+.cta-box p{color:rgba(255,255,255,.85);font-size:.9rem;margin-bottom:1rem;}
+.cta-box a{background:#fff;color:#0891b2;padding:.6rem 1.5rem;border-radius:8px;font-weight:700;font-size:.9rem;display:inline-block;}
+.faq-section{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-top:2rem;}
+.faq-item{margin-bottom:1.5rem;}
+.faq-item h3{font-size:1rem;font-weight:600;margin-bottom:.5rem;color:var(--accent);}
+.faq-item p{font-size:.9rem;color:var(--muted);}
+.related-links{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:2rem;}
+.related-links h3{font-size:1rem;font-weight:700;margin-bottom:1rem;}
+.related-links ul{list-style:none;padding:0;}
+.related-links li{margin-bottom:.5rem;}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--muted);font-size:.85rem;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What hardware do I need to get started with self-hosted AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For beginners, an NVIDIA GPU with at least 8GB VRAM (e.g., RTX 3060 or better) running Ollama on Windows, Linux, or Mac is the easiest entry point. For a turnkey solution, purpose-built appliances like ClawBox come pre-configured with everything installed. For enterprise use, an A10G or A100-based server is recommended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is self-hosted AI as powerful as ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most everyday tasks — summarization, Q&A, drafting, coding help — modern open-source models like Llama 3.1 70B or Mistral Large are competitive with GPT-3.5 and approaching GPT-4 quality. For the absolute frontier (complex reasoning, advanced coding), cloud models still lead, but the gap is closing fast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I keep my self-hosted AI updated with new models?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With Ollama, updating is as simple as running 'ollama pull <model-name>' to download the latest version. New models are released regularly on Ollama's model library at ollama.com/library. Subscribe to r/LocalLLaMA or the Ollama GitHub releases for notifications when significant new models drop."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9FY8Q06EX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q9FY8Q06EX');</script>
+</head>
+<body>
+<header>
+  <div class="logo">🔒 Self Hosted AI</div>
+  <nav><a href="/">Home</a><a href="#guide">Guide</a><a href="#hardware">Hardware</a><a href="#faq">FAQ</a></nav>
+</header>
+<section class="hero">
+  <div class="badge">Complete Guide 2026</div>
+  <h1>The Complete <span>Self-Hosted AI</span> Guide 2026</h1>
+  <p>Everything you need to deploy your own self-hosted AI — hardware selection, model setup, and privacy-first configuration. No cloud required.</p>
+</section>
+<div class="container" id="guide">
+
+<p>Running a <strong>self-hosted AI</strong> used to require a PhD and a server rack. In 2026, it's genuinely approachable for anyone with basic technical comfort. This guide walks you through everything: picking the right hardware, choosing a model, getting Ollama running, and integrating your AI into daily workflows — all with your data staying completely local.</p>
+
+<h2>Why Self-Hosted AI in 2026?</h2>
+<p>The case for self-hosted AI has never been stronger. Cloud AI subscriptions add up fast — $20/month for ChatGPT Plus, another $20 for Claude Pro, maybe Copilot on top. That's $500-700/year, with your conversations logged, your data processed on someone else's servers, and rate limits throttling your productivity when you need it most.</p>
+<p>Open-source models have caught up dramatically. Llama 3.1 70B, Mistral Large, Qwen 2.5, and Gemma 3 all deliver excellent results for coding, writing, analysis, and Q&A — the tasks that matter most day-to-day. A self-hosted AI setup typically pays for itself within 18-24 months versus cloud subscription costs.</p>
+
+<h2 id="hardware">Step 1: Choose Your Hardware</h2>
+<p>The most important factor in self-hosted AI performance is GPU VRAM. This determines which models you can run and at what speed. Here's how the tiers break down:</p>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Option</th><th>VRAM</th><th>Best For</th><th>Models</th><th>Approx Cost</th></tr></thead>
+  <tbody>
+    <tr><td>RTX 3060 / 4060</td><td>12GB</td><td>Solo users, beginners</td><td>7B–13B models</td><td>€300–500</td></tr>
+    <tr><td>RTX 3090 / 4090</td><td>24GB</td><td>Power users, small teams</td><td>Up to 34B models</td><td>€900–1,800</td></tr>
+    <tr><td><a href="https://openclawhardware.dev/">ClawBox (Jetson Orin Nano)</a></td><td>8GB unified</td><td>Plug-and-play, 24/7 always-on</td><td>7B–13B models</td><td>€549</td></tr>
+    <tr><td>Mac Mini M4 Pro</td><td>24–48GB unified</td><td>Mac ecosystem, silent</td><td>Up to 70B models</td><td>€1,400–2,000</td></tr>
+    <tr><td>NVIDIA A10G Server</td><td>24GB</td><td>Teams of 5–20</td><td>70B models, concurrent users</td><td>€3,000+</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>For most individuals, an <strong>RTX 3090 workstation</strong> or a purpose-built appliance like <a href="https://openclawhardware.dev/">ClawBox</a> offers the best balance of performance, power consumption, and simplicity. ClawBox is purpose-built for self-hosted AI — it comes pre-installed with Ollama, Open WebUI, and OpenClaw, so you're running AI in minutes rather than hours.</p>
+
+<h2>Step 2: Install Ollama</h2>
+<p>Ollama is the de facto standard for running local AI models. It handles model downloading, quantization selection, and serving — all through a simple CLI and REST API.</p>
+<ol>
+  <li><strong>Linux/Mac:</strong> Run <code>curl https://ollama.ai/install.sh | sh</code> in terminal</li>
+  <li><strong>Windows:</strong> Download the installer from ollama.com — it includes GPU detection</li>
+  <li><strong>Pull a model:</strong> <code>ollama pull llama3.1:8b</code> — downloads ~5GB for the 8B model</li>
+  <li><strong>Test it:</strong> <code>ollama run llama3.1:8b "Tell me about self-hosted AI"</code></li>
+</ol>
+<p>Ollama auto-detects your GPU and selects the right quantization. On 8GB VRAM, it'll run the 4-bit quantized 8B model which is fast and capable. On 24GB, it can load the 70B Q4 model for significantly better results.</p>
+
+<h2>Step 3: Add a Web Interface</h2>
+<p>The Ollama CLI is great for testing, but you'll want a proper chat interface. The best options:</p>
+<ul>
+  <li><strong>Open WebUI</strong> — The most polished, full-featured option. Docker install: <code>docker run -d -p 3000:8080 ghcr.io/open-webui/open-webui:ollama</code></li>
+  <li><strong>AnythingLLM</strong> — Built-in RAG (chat with your documents), good for knowledge management</li>
+  <li><strong>Msty</strong> — Desktop app for Mac and Windows, beautiful design, multi-model support</li>
+</ul>
+
+<h2>Step 4: Model Selection</h2>
+<p>Choosing the right model for your self-hosted AI depends on your VRAM and use case:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Model</th><th>Size</th><th>VRAM Needed</th><th>Best Use Case</th></tr></thead>
+  <tbody>
+    <tr><td>Llama 3.1 8B</td><td>5GB</td><td>6GB+</td><td>General purpose, fast responses</td></tr>
+    <tr><td>Mistral 7B</td><td>4.5GB</td><td>6GB+</td><td>Reasoning, instruction following</td></tr>
+    <tr><td>Qwen 2.5 Coder 7B</td><td>5GB</td><td>6GB+</td><td>Code generation, debugging</td></tr>
+    <tr><td>Llama 3.1 70B Q4</td><td>40GB</td><td>24GB+ (offloading)</td><td>Complex reasoning, long context</td></tr>
+    <tr><td>Gemma 3 27B</td><td>18GB</td><td>20GB+</td><td>Multilingual, multimodal tasks</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Step 5: Integrate Into Your Workflow</h2>
+<p>A self-hosted AI becomes truly powerful when integrated into your daily tools. Options include:</p>
+<ul>
+  <li><strong>VS Code extension (Continue.dev):</strong> Connects to your local Ollama for inline coding assistance</li>
+  <li><strong>Obsidian plugin:</strong> AI-powered notes, summarization, and linking</li>
+  <li><strong>OpenClaw:</strong> Makes your AI accessible via Telegram, WhatsApp, or Discord from anywhere</li>
+  <li><strong>n8n / Node-RED:</strong> Automation workflows that use your local AI as a processing node</li>
+</ul>
+
+<div class="cta-box">
+  <h3>Want a plug-and-play self-hosted AI setup?</h3>
+  <p>ClawBox ships pre-configured with Ollama, Open WebUI, and OpenClaw. Plug in, scan QR, start chatting — no setup required.</p>
+  <a href="https://openclawhardware.dev/">View ClawBox Specs →</a>
+</div>
+
+<div class="related-links">
+  <h3>🔗 Related Guides</h3>
+  <ul>
+    <li>→ <a href="https://run-ai-locally.com/">How to Run AI Locally: Step-by-Step</a></li>
+    <li>→ <a href="https://personal-ai-server.com/">Build Your Personal AI Server</a></li>
+    <li>→ <a href="https://private-ai-hardware.com/">Private AI Hardware Buyer's Guide</a></li>
+    <li>→ <a href="/">Self-Hosted AI Home</a></li>
+  </ul>
+</div>
+
+<div class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3>What hardware do I need to get started with self-hosted AI?</h3>
+    <p>For beginners, an NVIDIA GPU with at least 8GB VRAM (e.g., RTX 3060) running Ollama is the easiest entry point. For a turnkey solution, purpose-built appliances like <a href="https://openclawhardware.dev/">ClawBox</a> come pre-configured. For enterprise, an A10G-based server is recommended.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is self-hosted AI as powerful as ChatGPT?</h3>
+    <p>For most everyday tasks — summarization, Q&amp;A, drafting, coding help — modern open-source models like Llama 3.1 70B are competitive with GPT-3.5 and approaching GPT-4. For complex frontier tasks, cloud models still lead, but the gap is closing fast.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I keep my self-hosted AI updated with new models?</h3>
+    <p>With Ollama, updating is as simple as running <code>ollama pull &lt;model-name&gt;</code>. New models are released regularly on ollama.com/library. Subscribe to r/LocalLLaMA for notifications when significant new models drop.</p>
+  </div>
+</div>
+
+</div>
+<footer>
+  <p>© 2026 Self Hosted AI · <a href="/">Home</a> · <a href="/guide.html">Guide</a> · <a href="mailto:hello@self-hosted-ai.com">Contact</a></p>
+  <p style="margin-top:.5rem;">Related: <a href="https://run-ai-locally.com/">run-ai-locally.com</a> · <a href="https://personal-ai-server.com/">personal-ai-server.com</a> · <a href="https://private-ai-hardware.com/">private-ai-hardware.com</a></p>
+</footer>
+</body>
+</html>
